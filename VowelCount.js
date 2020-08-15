@@ -11,6 +11,5 @@ function VowelCount(str) {
     }
   }
 
-  // code goes here
   return count;
 }
