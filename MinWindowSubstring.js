@@ -8,8 +8,6 @@
 // which is located at the beginning of the string. Both parameters will be strings ranging in length from 1 to 50 characters and
 // all of K's characters will exist somewhere in the string N. Both strings will only contains lowercase alphabetic characters.
 
-// Use the Parameter Testing feature in the box below to test your code with different arguments.
-
 function MinWindowSubstring(strArr) {
   let str = strArr[0];
   let target = strArr[1];
