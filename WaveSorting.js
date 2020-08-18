@@ -6,7 +6,6 @@
 
 function WaveSorting(arr) {
   let midPoint = Math.floor(arr.length / 2);
-  console.log(`midpoint >>> ${midPoint}`);
   arr.sort((a, b) => a - b);
 
   for (let i = 0; i < arr.length; i++) {
