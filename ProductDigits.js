@@ -9,7 +9,7 @@
 function ProductDigits(num) {
   // go through all the numbers up to half num and make a list of all the divisors
   const divisors = [];
-  for (let i = 0; i < num / 2 + 1; i++) {
+  for (let i = 0; i < Math.sqrt(num) + 1; i++) {
     if (num % i === 0) {
       divisors.push([
         i,
@@ -22,7 +22,7 @@ function ProductDigits(num) {
   return divisors[0][2];
 }
 
-console.log(ProductDigits(6)); // 2
+console.log(ProductDigits(13)); // 3
 console.log(ProductDigits(23)); // 3
 console.log(ProductDigits(90)); // 3
-console.log(ProductDigits(1)); // 2
+console.log(ProductDigits(100000000)); // 2
