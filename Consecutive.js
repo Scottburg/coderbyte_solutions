@@ -9,6 +9,5 @@ function Consecutive(arr) {
   return arr.sort((a, b) => a - b)[arr.length - 1] - arr[0] - arr.length + 1;
 }
 
-// keep this function call here
 console.log(Consecutive([5, 10, 15])); // 8
 console.log(Consecutive([-2, 10, 4])); // 10
