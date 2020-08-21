@@ -16,13 +16,16 @@ function RunLength(str) {
 
   const regex = /(\w)\1+/g;
   let match = res.match(regex);
-  for (const el of match) {
-    let replacement = el.length + el[0];
-    res = res.replace(el, replacement);
+  if (match) {
+    for (const el of match) {
+      let replacement = el.length + el[0];
+      res = res.replace(el, replacement);
+    }
   }
 
   return res;
 }
 
+console.log(RunLength('swept')); //1s1w1e1p1t
 console.log(RunLength('aabbcde')); //2a2b1c1d1e
 console.log(RunLength('wwwbbbw')); //3w3b1w
