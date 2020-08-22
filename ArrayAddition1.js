@@ -8,7 +8,6 @@ function ArrayAdditionI(arr) {
   const sum = Math.max(...arr);
   arr.splice(arr.indexOf(sum), 1);
 
-  // console.log(max);
   //powersets
 
   var sets = [[]];
@@ -35,6 +34,6 @@ function ArrayAdditionI(arr) {
 }
 
 console.log(ArrayAdditionI([5, 7, 16, 1, 2])); // false
-// console.log(ArrayAdditionI([3, 5, -1, 8, 12])); // true
-// console.log(ArrayAdditionI([54, 49, 1, 0, 7, 4])); // true
-// console.log(ArrayAdditionI([3, 4, 5, 7])); // true
+console.log(ArrayAdditionI([3, 5, -1, 8, 12])); // true
+console.log(ArrayAdditionI([54, 49, 1, 0, 7, 4])); // true
+console.log(ArrayAdditionI([3, 4, 5, 7])); // true
