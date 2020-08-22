@@ -20,6 +20,7 @@ function FoodDistribution(arr) {
   // this loop gives sandwich when 2 hunger differential is taken away
 
   for (let i = 1; i < arr.length - 1; i++) {
+    debugger;
     if (arr[i] >= min && sandwiches > 0) {
       while (arr[i] > arr[i + 1] && arr[i] > arr[i - 1] && sandwiches > 0) {
         arr[i]--;
