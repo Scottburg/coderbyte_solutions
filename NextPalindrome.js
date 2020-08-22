@@ -3,11 +3,11 @@
 // should return 33 because that is the next largest number that is a palindrome.
 
 function NextPalindrome(num) {
-  while (num <= num * num) {
-    num++;
-    if (num.toString() === num.toString().split('').reverse().join('')) {
-      return num;
-    }
+  num++;
+  if (num.toString() === num.toString().split('').reverse().join('')) {
+    return num;
+  } else {
+    return NextPalindrome(num);
   }
 }
 
