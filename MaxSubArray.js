@@ -4,7 +4,7 @@
 // sum is formed by the subarray [5, -1, 7]. Adding any element before or after this subarray would make the sum smaller.
 
 function MaxSubarray(arr) {
-  let max = null;
+  let max = arr.reduce((a, c) => a + c);
 
   for (let i = 0; i < arr.length; i++) {
     debugger;
@@ -20,3 +20,5 @@ function MaxSubarray(arr) {
 
 console.log(MaxSubarray([1, -2, 0, 3])); // 3
 console.log(MaxSubarray([3, -1, -1, 4, 3, -1])); // 8
+console.log(MaxSubarray([1, 1, 1, 1])); // 4
+console.log(MaxSubarray([-4, -5, -6])); // -4
