@@ -18,8 +18,11 @@ function PalindromeCreator(str) {
     if (temp.length > 2 && temp === temp.split('').reverse().join('')) {
       return str[i];
     }
+  }
+
+  for (let i = 0; i < str.length; i++) {
+    temp = str.replace(str[i], '');
     for (let j = i + 1; j < str.length; j++) {
-      debugger;
       let newTemp = temp.replace(str[j], '');
       if (
         newTemp.length > 2 &&
@@ -36,3 +39,5 @@ console.log(PalindromeCreator('mmop')); // not possible
 console.log(PalindromeCreator('kjjjhjjj')); // k
 console.log(PalindromeCreator('abjchba')); // jc
 console.log(PalindromeCreator('racecar')); // palindrome
+console.log(PalindromeCreator('annak')); // k
+console.log(PalindromeCreator('aaabaaaj')); // j
