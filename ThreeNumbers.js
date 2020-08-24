@@ -11,7 +11,7 @@ function ThreeNumbers(str) {
 
   for (const el of numMatches) {
     let digits = el.join('');
-    if (el.length === 1 && digits.length !== 3) {
+    if (el.length === 1 || digits.length !== 3) {
       return false;
     }
     if (
@@ -28,3 +28,4 @@ function ThreeNumbers(str) {
 
 console.log(ThreeNumbers('2a3b5 w1o2rl3d g1gg92')); // true
 console.log(ThreeNumbers('213aaa ggg4g4g6ggg')); // false
+console.log(ThreeNumbers('hell268o w6or2l4d')); // false
