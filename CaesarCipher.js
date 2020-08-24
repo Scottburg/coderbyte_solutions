@@ -20,7 +20,6 @@ function CaesarCipher(str, num) {
   return res;
 }
 
-// keep this function call here
 console.log(CaesarCipher('Hello', 4)); // Lipps
 console.log(CaesarCipher('world!', 1)); // xpsme!
 console.log(CaesarCipher('byte-dash', 0)); // byte-dash
