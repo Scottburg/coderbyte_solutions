@@ -4,18 +4,29 @@
 // sum is formed by the subarray [5, -1, 7]. Adding any element before or after this subarray would make the sum smaller.
 
 function MaxSubarray(arr) {
-  let max = arr.reduce((a, c) => a + c);
+  // BRUTE FORCE O-n2
+  // let max = arr.reduce((a, c) => a + c);
+
+  // for (let i = 0; i < arr.length; i++) {
+  //   debugger;
+  //   for (let j = i; j < arr.length; j++) {
+  //     let temp = j === i ? arr[i] : arr.slice(i, j).reduce((a, c) => a + c);
+  //     if (temp > max) {
+  //       max = temp;
+  //     }
+  //   }
+  // }
+  // return max;
+
+  // Dynamic Programming Using Kadanes Algorithm
+  let localMax = [0];
 
   for (let i = 0; i < arr.length; i++) {
-    debugger;
-    for (let j = i; j < arr.length; j++) {
-      let temp = j === i ? arr[i] : arr.slice(i, j).reduce((a, c) => a + c);
-      if (temp > max) {
-        max = temp;
-      }
-    }
+    let temp = Math.max(arr[i] + localMax[i], arr[i]);
+    localMax.push(temp);
   }
-  return max;
+  localMax.shift();
+  return Math.max(...localMax);
 }
 
 console.log(MaxSubarray([1, -2, 0, 3])); // 3
