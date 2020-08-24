@@ -12,5 +12,4 @@ function PalindromeTwo(str) {
   return str.toLowerCase() === revStr;
 }
 
-// keep this function call here
 console.log(PalindromeTwo('Noel - sees Leon')); //true
