@@ -7,6 +7,8 @@
 
 function StepWalking(num) {
   //recursion using fibonnacci sequence
+  // time complexity O(2^n) exponential
+  console.log(`current num is ${num}`);
   if (num === 1) {
     return 1;
   }
@@ -17,5 +19,27 @@ function StepWalking(num) {
 }
 
 // keep this function call here
-console.log(StepWalking(1));
+// console.log(StepWalking(1));
 console.log(StepWalking(10));
+
+const memo = {};
+
+function memoWalking(num, memo) {
+  //linear time complecity
+  debugger;
+  if (memo[num]) {
+    return memo[num];
+  }
+  console.log(`current num is ${num}`);
+
+  if (num === 1) {
+    return 1;
+  }
+  if (num === 2) {
+    return 2;
+  }
+  memo[num] = memoWalking(num - 1, memo) + memoWalking(num - 2, memo);
+  return memo[num];
+}
+// console.log(memoWalking(1, memo));
+console.log(memoWalking(10, memo));
