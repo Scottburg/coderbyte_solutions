@@ -9,80 +9,82 @@
 // ever be one correct path and there will always be at least one question mark within the input string.
 
 function CorrectPath(str) {
-  let x = 0; // left/rigth axis
-  let y = 0; // up/down axis
-  let q = str.match(/\?/g).length; // matchs all question marks
-  const fills = [];
-  let result = str.split('');
-
+  let x = 0;
+  let y = 0;
+  let unknowns = 0;
+  missingLetters = [];
   for (let i = 0; i < str.length; i++) {
-    debugger;
     if (str[i] === 'r') x++;
     if (str[i] === 'l') x--;
     if (str[i] === 'd') y++;
     if (str[i] === 'u') y--;
+    if (str[i] === '?') unknowns++;
   }
+  console.log(`X:${x}, Y:${y}, ???s ${unknowns}`);
 
-  function moveToRightBorder() {
+  function addX() {
     while (x !== 4) {
-      if (x < 4) {
-        fills.push('r');
-        x++;
-      } else {
-        fills.push('l');
+      if (x > 4) {
         x--;
+        missingLetters.push('l');
+      } else {
+        x++;
+        missingLetters.push('r');
       }
     }
   }
 
-  function moveToBottomBorder() {
+  function addY() {
     while (y !== 4) {
-      if (y < 4) {
-        fills.push('d');
-        y++;
-      } else {
-        fills.push('u');
+      if (y > 4) {
         y--;
+        missingLetters.push('u');
+      } else {
+        y++;
+        missingLetters.push('d');
       }
     }
   }
 
   if (x > y) {
-    moveToRightBorder();
-    moveToBottomBorder();
-  } else {
-    moveToBottomBorder();
-    moveToRightBorder();
+    addX();
+    addY();
+  }
+  //
+  if (y >= x) {
+    addY();
+    addX();
   }
 
-  while (fills.length < q) {
-    if (fills[fills.length - 1] === 'r') {
-      fills.push('r');
-      x++;
-      moveToRightBorder();
+  while (missingLetters.length < unknowns.length) {
+    var pos = missingLetters.length - 1;
+    if (missingLetters[pos] === 'r') {
+      x += 1;
+      missingLetters.push('r');
+      addX();
     }
-    if (fills[fills.length - 1] === 'l') {
-      fills.push('l');
-      x--;
-      moveToRightBorder();
+    if (missingLetters[pos] === 'l') {
+      x -= 1;
+      missingLetters.push('l');
+      addX();
     }
-    if (fills[fills.length - 1] === 'd') {
-      fills.push('d');
-      y++;
-      moveToBottomBorder();
+    if (missingLetters[pos] === 'd') {
+      y += 1;
+      missingLetters.push('d');
+      addY();
     }
-    if (fills[fills.length - 1] === 'u') {
-      fills.push('u');
-      y--;
-      moveToBottomBorder();
+    if (missingLetters[pos] === 'u') {
+      y -= 1;
+      missingLetters.push('u');
+      addY();
     }
   }
 
-  for (let i = 0; i < result.length; i++) {
-    result[i] = result[i] === '?' ? fills.shift() : result[i];
+  var newStr = str.split('');
+  for (var j = 0; j < str.length; j++) {
+    newStr[j] === '?' ? (newStr[j] = missingLetters.shift()) : 'null';
   }
-
-  return result.join('');
+  return newStr.join('');
 }
 
 console.log(CorrectPath('r?d?drdd')); // rrdrdrdd
