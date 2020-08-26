@@ -14,7 +14,6 @@ function SimpleMode(arr) {
   }
 
   for (const item in resObj) {
-    debugger;
     if (resObj[item].count > max) {
       max = resObj[item].count;
       maxArr = [resObj[item]];
