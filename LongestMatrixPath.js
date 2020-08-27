@@ -3,6 +3,8 @@
 // the matrix, you can only go up, down, left, and right. For example: if strArr is ["345", "326", "221"], then this looks
 // like the following matrix:
 
+const { coral } = require('color-name');
+
 // 3 4 5
 // 3 2 6
 // 2 2 1
@@ -13,11 +15,12 @@
 
 function LongestMatrixPath(strArr) {
   const findLongestPath = (coords, strArr, count = 0) => {
+    debugger;
+    // if (hash[coords]) {
+    //   return hash[coords];
+    // }
     const y = parseInt(coords[0]);
     const x = parseInt(coords[1]);
-    if (hash[[y, x]]) {
-      return hash[[y, x]];
-    }
     let num = parseInt(strArr[y][x]);
     if (x < strArr[0].length - 1) {
       if (parseInt(strArr[y][x + 1]) > num) {
@@ -51,7 +54,7 @@ function LongestMatrixPath(strArr) {
     if (count > maximum) {
       maximum = count;
     }
-    hash[[y, x]] = count;
+    // hash[`${y}${x}`] = count;
     return count;
   };
   let maximum = 0;
@@ -60,17 +63,14 @@ function LongestMatrixPath(strArr) {
   for (let i = 0; i < strArr[0].length; i++) {
     for (let j = 0; j < strArr.length; j++) {
       let coords = `${j}${i}`;
-      let temp = findLongestPath(coords, strArr);
-      if (temp > max) {
-        max = temp;
-      }
+      findLongestPath(coords, strArr);
     }
   }
   return maximum;
 }
 
 // keep this function call here
-// console.log(LongestMatrixPath(['9', '1', '9', '3', '1'])); //2
+console.log(LongestMatrixPath(['9', '1', '9', '3', '1'])); //2
 console.log(LongestMatrixPath(['923', '456', '789'])); //3
 console.log(LongestMatrixPath(['67', '21', '45'])); //3
 console.log(LongestMatrixPath(['123', '456', '789'])); //4
