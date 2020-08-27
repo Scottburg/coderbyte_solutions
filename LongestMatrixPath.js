@@ -3,8 +3,6 @@
 // the matrix, you can only go up, down, left, and right. For example: if strArr is ["345", "326", "221"], then this looks
 // like the following matrix:
 
-const { coral } = require('color-name');
-
 // 3 4 5
 // 3 2 6
 // 2 2 1
@@ -15,10 +13,6 @@ const { coral } = require('color-name');
 
 function LongestMatrixPath(strArr) {
   const findLongestPath = (coords, strArr, count = 0) => {
-    debugger;
-    // if (hash[coords]) {
-    //   return hash[coords];
-    // }
     const y = parseInt(coords[0]);
     const x = parseInt(coords[1]);
     let num = parseInt(strArr[y][x]);
@@ -54,11 +48,10 @@ function LongestMatrixPath(strArr) {
     if (count > maximum) {
       maximum = count;
     }
-    // hash[`${y}${x}`] = count;
+    hash[`${y}${x}`] = count;
     return count;
   };
   let maximum = 0;
-  let max = 0;
   const hash = {};
   for (let i = 0; i < strArr[0].length; i++) {
     for (let j = 0; j < strArr.length; j++) {
