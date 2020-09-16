@@ -18,30 +18,43 @@ function MultipleBrackets(str) {
   for (let i = 0; i < str.length; i++) {
     if (str[i] === '(') {
       round++;
-      total++;
     }
     if (str[i] === ')') {
+      if (round < 1) {
+        return '0';
+      }
+      total++;
       round--;
     }
     if (str[i] === '{') {
       curly++;
-      total++;
     }
     if (str[i] === '}') {
+      if (curly < 1) {
+        return '0';
+      }
+
+      total++;
       curly--;
     }
     if (str[i] === '[') {
       square++;
-      total++;
     }
     if (str[i] === ']') {
+      if (square < 1) {
+        return '0';
+      }
+
+      total++;
       square--;
     }
   }
 
-  return curly + square + round === 0 ? `1 ${total}` : 0;
+  return curly + square + round === 0 ? `1 ${total}` : '0';
 }
 
 // keep this function call here
 console.log(MultipleBrackets('(coder)[byte)]')); // 0
 console.log(MultipleBrackets('(c([od]er)) b(yt[e])')); // 1 5
+console.log(MultipleBrackets('the co[l][]or re(d))()(()')); // 0
+console.log(MultipleBrackets('le[tter(s) gal](o)(r)((e])')); // 0
