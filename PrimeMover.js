@@ -28,3 +28,5 @@ function PrimeMover(pos) {
 
 console.log(PrimeMover(9)); //23
 console.log(PrimeMover(100)); //541
+console.log(PrimeMover(16)); //53
+console.log(PrimeMover(1000001)); //53
