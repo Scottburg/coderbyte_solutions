@@ -14,6 +14,8 @@ function flippingMatrix(matrix) {
   return res;
 }
 
+// By flipping the orde of columns or rows find the largest possible sum of the of the top left quadrent of the matrix
+
 console.log(
   flippingMatrix([
     [112, 42, 83, 119],
@@ -21,4 +23,4 @@ console.log(
     [15, 78, 101, 43],
     [62, 98, 114, 108],
   ])
-);
+); //414
