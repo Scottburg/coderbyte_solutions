@@ -5,16 +5,17 @@
 
 function CaesarCipher(str, num) {
   let res = '';
-  let regex = /[^A-Za-z]/g;
+  let regex = /[^A-Za-z]/g; // test for !alpha char
   for (let i = 0; i < str.length; i++) {
     if (regex.test(str[i])) {
+      // if  not alpha char just add to res
       res += str[i];
       continue;
     }
-    let charCode = str.charCodeAt(i) - 96;
-    charCode < 0
-      ? (charCode = ((charCode + 32 + num) % 26) + 64)
-      : (charCode = ((charCode + num) % 26) + 96);
+    let charCode = str.charCodeAt(i) - 96; // get ascii code shifted to 1- 26 for lowercase char
+    charCode < 0 // ie if uppercase
+      ? (charCode = ((charCode + 32 + num) % 26) + 64) // add 32 to bring to above 0 then modulo to get the new code, and then add 64 to bring to upper case char
+      : (charCode = ((charCode + num) % 26) + 96); // add 96 forlower case
     res += String.fromCharCode(charCode);
   }
   return res;
